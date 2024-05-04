@@ -5,6 +5,9 @@ TagManager:
   serializedVersion: 2
   tags:
   - Obstacle
+  - CarToSpeedDict
+  - CarSpawner
+  - Road
   layers:
   - Default
   - TransparentFX
@@ -41,4 +44,10 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Car
+    uniqueID: 3646247065
+    locked: 0
+  - name: Road
+    uniqueID: 535249875
     locked: 0
