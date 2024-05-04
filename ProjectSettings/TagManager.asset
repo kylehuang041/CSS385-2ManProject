@@ -8,6 +8,7 @@ TagManager:
   - CarToSpeedDict
   - CarSpawner
   - Road
+  - Car
   layers:
   - Default
   - TransparentFX
@@ -50,4 +51,7 @@ TagManager:
     locked: 0
   - name: Road
     uniqueID: 535249875
+    locked: 0
+  - name: Player
+    uniqueID: 1133713871
     locked: 0
