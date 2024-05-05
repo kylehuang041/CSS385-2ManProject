@@ -6,7 +6,6 @@ public class CarMovement2 : MonoBehaviour
 {
     GameObject carToSpeedObj;
     private float speed;
-
     Animator animator;
 
     void Awake() {
