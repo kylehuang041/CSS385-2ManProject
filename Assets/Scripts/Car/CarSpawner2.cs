@@ -12,7 +12,7 @@ public class CarSpawner2 : MonoBehaviour
   void Awake()
   {
     random = new System.Random();
-    spawnInterval = (float)random.Next(100, 350) / 100.0f;
+    spawnInterval = (float)random.Next(150, 350) / 100.0f;
   }
 
   void Start()

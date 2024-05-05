@@ -17,7 +17,6 @@ public class CarToSpeed : MonoBehaviour
     {
       float randomSpeed = random.Next(7, 20);
       carToSpeed.Add(carPrefab, randomSpeed);
-      UnityEngine.Debug.Log(randomSpeed);
     }
     
   }
