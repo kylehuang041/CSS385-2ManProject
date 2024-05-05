@@ -7,7 +7,10 @@ public class CarMovement2 : MonoBehaviour
     GameObject carToSpeedObj;
     private float speed;
 
+    Animator animator;
+
     void Awake() {
+        animator.SetBool("Pressed", true);
         carToSpeedObj = GameObject.FindGameObjectWithTag("CarToSpeed");
         if (carToSpeedObj != null) {
             CarToSpeed carToSpeed = carToSpeedObj.GetComponent<CarToSpeed>();
