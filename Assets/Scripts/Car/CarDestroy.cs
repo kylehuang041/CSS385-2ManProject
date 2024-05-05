@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class CarDestroy : MonoBehaviour
 {
-    public float boundary = 15.0f;
+    public float boundary = 20.0f;
 
     // Update is called once per frame
     void Update()
