@@ -1,36 +1,40 @@
-using System.Security.AccessControl;
-using System;
 using UnityEngine;
-using System.Collections;
 using System.Collections.Generic;
 
 public class CarToSpeed : MonoBehaviour
 {
   public GameObject[] carPrefabs;
   private System.Random random;
-  private Dictionary<GameObject, float> carToSpeed = new Dictionary<GameObject, float>();
+  private Dictionary<string, float> carToSpeed = new Dictionary<string, float>();
 
   void Awake()
   {
     random = new System.Random();
     foreach (GameObject carPrefab in carPrefabs)
     {
-      float randomSpeed = random.Next(7, 20);
-      carToSpeed.Add(carPrefab, randomSpeed);
+      SpriteRenderer renderer = carPrefab.GetComponent<SpriteRenderer>();
+      if (renderer != null && renderer.sprite != null)
+      {
+        float randomSpeed = random.Next(7, 20);
+        carToSpeed.Add(renderer.sprite.name, randomSpeed);
+      }
+      else
+      {
+        Debug.LogWarning("SpriteRenderer not found or sprite is null on GameObject: " + carPrefab.name);
+      }
     }
-    
   }
 
-  public float GetSpeedForCar(GameObject car)
+  public float GetSpeedForCar(string spriteName)
   {
-    if (carToSpeed.ContainsKey(car))
+    if (carToSpeed.ContainsKey(spriteName))
     {
-      return carToSpeed[car];
+      return carToSpeed[spriteName];
     }
     else
     {
-      Debug.LogError("Car speed not found for GameObject: " + car.name);
-      return 5f;
+      Debug.LogError("Speed not found for sprite: " + spriteName);
+      return 5f; // or some default speed
     }
   }
 }

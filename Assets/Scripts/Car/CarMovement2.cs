@@ -6,20 +6,33 @@ public class CarMovement2 : MonoBehaviour
 {
     GameObject carToSpeedObj;
     private float speed;
-    Animator animator;
+    // Animator animator;
 
-    void Awake() {
-        animator = GetComponent<Animator>();
-        animator.SetBool("Pressed", true);
-        carToSpeedObj = GameObject.FindGameObjectWithTag("CarToSpeed");
-        if (carToSpeedObj != null) {
+    void Awake()
+    {
+        carToSpeedObj = GameObject.FindGameObjectWithTag("CarToSpeedDict");
+        if (carToSpeedObj != null)
+        {
             CarToSpeed carToSpeed = carToSpeedObj.GetComponent<CarToSpeed>();
-            if (carToSpeed != null) {
-                speed = carToSpeed.GetSpeedForCar(gameObject);
-            } else {
-                UnityEngine.Debug.LogError("CarToSpeed script not found.");
+            if (carToSpeed != null)
+            {
+                SpriteRenderer renderer = gameObject.GetComponent<SpriteRenderer>();
+                if (renderer != null)
+                {
+                    speed = carToSpeed.GetSpeedForCar(renderer.sprite.name);
+                }
+                else
+                {
+                    UnityEngine.Debug.LogError("SpriteRenderer component not found on GameObject: " + gameObject.name);
+                }
             }
-        } else {
+            else
+            {
+                UnityEngine.Debug.LogError("CarToSpeed script not found on object: " + carToSpeedObj.name);
+            }
+        }
+        else
+        {
             UnityEngine.Debug.LogError("CarToSpeed object not found with tag.");
         }
     }
