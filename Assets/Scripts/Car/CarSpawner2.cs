@@ -28,6 +28,6 @@ public class CarSpawner2 : MonoBehaviour
       car.transform.Rotate(new Vector3(0, 0, 180));
     }
     car.AddComponent<CarDestroy>();
-    car.AddComponent<CarMovement>();
+    car.AddComponent<CarMovement2>();
   }
 }
